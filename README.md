@@ -1,6 +1,6 @@
 # Deepfake Detector - Chrome Extension  
 
-This Chrome extension uses the **[prithivMLmods/Deep-Fake-Detector-v2-Model (ONNX)](https://huggingface.co/prithivMLmods/Deep-Fake-Detector-v2-Model)** to detect and highlight potential deepfake images directly in your browser.  
+This Chrome extension uses the **[date3k2/vit-real-fake-classification-v4 (ONNX)](https://huggingface.co/date3k2/vit-real-fake-classification-v4)** to detect and highlight potential deepfake images directly in your browser.  
 
 ## Features  
 - **Toggle Detection**  
@@ -21,7 +21,7 @@ This Chrome extension uses the **[prithivMLmods/Deep-Fake-Detector-v2-Model (ONN
 4. Click **Load unpacked** and select the extension folder.  
 
 ## Model  
-This extension runs inference using the **Deep-Fake-Detector-v2-Model** (ONNX format), fine-tuned for detecting manipulated images.  
+This extension runs inference using the **date3k2/vit-real-fake-classification-v4** (ONNX format), fine-tuned for detecting manipulated images.  
 
 ## Disclaimer  
 This tool is experimental and should not be considered 100% accurate. Use it as an additional aid, not as a definitive judgment.  
