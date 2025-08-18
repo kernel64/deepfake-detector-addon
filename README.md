@@ -2,7 +2,7 @@
 
 This Chrome extension uses the **[prithivMLmods/Deep-Fake-Detector-v2-Model (ONNX)](https://huggingface.co/prithivMLmods/Deep-Fake-Detector-v2-Model)** to detect and highlight potential deepfake images directly in your browser.  
 
-## 🚀 Features  
+## Features  
 - **Toggle Detection**  
   - Click the extension icon in the browser toolbar to enable or disable detection.  
   - **Green icon** → Detection enabled.  
@@ -14,16 +14,16 @@ This Chrome extension uses the **[prithivMLmods/Deep-Fake-Detector-v2-Model (ONN
 - **Lightweight & Real-time**  
   - Works automatically on images while you browse.  
 
-## 📦 Installation  
+## Installation  
 1. Clone or download this repository.  
 2. Open **chrome://extensions/** in your browser.  
 3. Enable **Developer Mode** (top-right corner).  
 4. Click **Load unpacked** and select the extension folder.  
 
-## 🧠 Model  
+## Model  
 This extension runs inference using the **Deep-Fake-Detector-v2-Model** (ONNX format), fine-tuned for detecting manipulated images.  
 
-## ⚠️ Disclaimer  
+## Disclaimer  
 This tool is experimental and should not be considered 100% accurate. Use it as an additional aid, not as a definitive judgment.  
 
 ## 📜 License  

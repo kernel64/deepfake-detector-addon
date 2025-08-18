@@ -51,7 +51,7 @@ async function preprocessImage(imageElement) {
  * Interpret ONNX output to label
  */
 function interpretOutput(index) {
-  return index == 0 ? "Realism" : "Likely fake";
+  return index == 1 ? "Realism" : "Likely fake";
 }
 
 /**
@@ -138,7 +138,7 @@ function overlayLabel(img, label) {
             console.log("Prediction:", maxIndex);
             chrome.storage.local.get(["onlyFake"], async ({ onlyFake }) => {
               //console.log('onlyFake : ', onlyFake);
-              if (!onlyFake || maxIndex == 1) {
+              if (!onlyFake || maxIndex == 0) {
 
                 const label = interpretOutput(maxIndex);
                 overlayLabel(img, label);
