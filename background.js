@@ -1,39 +1,35 @@
 function updateIcon(enabled) {
-  const path = enabled
-    ? {
-        16: "icons/enabled_16.png",
-        48: "icons/enabled_48.png",
-        64: "icons/enabled_64.png",
-        128: "icons/enabled_128.png"
-      }
-    : {
-        16: "icons/disabled_16.png",
-        48: "icons/disabled_48.png",
-        64: "icons/disabled_64.png",
-        128: "icons/disabled_128.png"
-      };
+  const basePath = enabled ? "icons/enabled" : "icons/disabled";
+  const sizes = [16, 48, 64, 128];
+  const path = Object.fromEntries(sizes.map(size => [size, `${basePath}_${size}.png`]));
 
   chrome.action.setIcon({ path });
 }
 
-chrome.runtime.onInstalled.addListener(() => {
+async function initDetectionState() {
+  const { detectionEnabled } = await chrome.storage.local.get("detectionEnabled");
 
-    chrome.storage.local.set({ onlyFake: true });
+  const enabled = (typeof detectionEnabled === "boolean") ? detectionEnabled : true;
+  await chrome.storage.local.set({ detectionEnabled: enabled });
+  updateIcon(enabled);
 
-    chrome.storage.local.get(["detectionEnabled"],
-    async ({ detectionEnabled }) => {
-    const enabled = detectionEnabled ?? true;
-    chrome.storage.local.set({ detectionEnabled : enabled });
-    updateIcon(enabled);
-  });
+  return enabled;
+}
+
+// Installation
+chrome.runtime.onInstalled.addListener(async () => {
+  await chrome.storage.local.set({ onlyFake: true });
+  await initDetectionState();
 });
 
+// start
+chrome.runtime.onStartup.addListener(initDetectionState);
 
-chrome.action.onClicked.addListener(() => {
+// Click
+chrome.action.onClicked.addListener(async () => {
+  const { detectionEnabled } = await chrome.storage.local.get("detectionEnabled");
+  const newState = !detectionEnabled;
 
-  chrome.storage.local.get(["detectionEnabled"], async ({ detectionEnabled }) => {
-    const newState = !detectionEnabled;
-    chrome.storage.local.set({ detectionEnabled: newState });
-    updateIcon(newState);
-  });
+  await chrome.storage.local.set({ detectionEnabled: newState });
+  updateIcon(newState);
 });
