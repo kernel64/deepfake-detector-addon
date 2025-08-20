@@ -1,6 +1,6 @@
 # Deepfake Detector - Chrome Extension  
 
-This Chrome extension uses the **[date3k2/vit-real-fake-classification-v4 (ONNX)](https://huggingface.co/date3k2/vit-real-fake-classification-v4)** to detect and highlight potential deepfake images directly in your browser.  
+This Chrome extension uses the **[0xfffm4bs/vit-real-fake-classification-v4 (ONNX)](https://huggingface.co/0xfffm4bs/vit-real-fake-classification-v4)** to detect and highlight potential deepfake images directly in your browser.  
 
 ## Features  
 - **Toggle Detection**  
@@ -15,16 +15,17 @@ This Chrome extension uses the **[date3k2/vit-real-fake-classification-v4 (ONNX)
   - Works automatically on images while you browse.  
 
 ## Installation  
-1. Clone or download this repository.  
-2. Open **chrome://extensions/** in your browser.  
-3. Enable **Developer Mode** (top-right corner).  
-4. Click **Load unpacked** and select the extension folder.  
+1. Clone or download this repository.
+2. Download the model from HuggingFace.co and save it to /model/model.onnx.
+3. Open **chrome://extensions/** in your browser.  
+4. Enable **Developer Mode** (top-right corner).  
+5. Click **Load unpacked** and select the extension folder.  
 
 ## Model  
-This extension runs inference using the **date3k2/vit-real-fake-classification-v4** (ONNX format), fine-tuned for detecting manipulated images.  
+This extension runs inference using the **0xfffm4bs/vit-real-fake-classification-v4** (ONNX format), fine-tuned for detecting manipulated images.  
 
 ## Disclaimer  
 This tool is experimental and should not be considered 100% accurate. Use it as an additional aid, not as a definitive judgment.  
 
-## 📜 License  
+## License  
 [AGPL-3.0-or-later](LICENSE)  
